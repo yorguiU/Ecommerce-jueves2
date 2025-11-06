@@ -18,9 +18,7 @@ return new class extends Migration
             $table->text('description');
 
 
-
-
-            $table->foreignId('category_id')->constrained('categories');
+            $table->foreignId('Category_id')->constrained('Category');
 
 
             $table->foreignId('brand_id')->constrained();

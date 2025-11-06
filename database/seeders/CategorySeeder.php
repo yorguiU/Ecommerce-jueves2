@@ -2,8 +2,8 @@
 
 namespace Database\Seeders;
 
-use App\Models\categories;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\Category;
 use Illuminate\Database\Seeder;
 
 class CategorySeeder extends Seeder
@@ -13,12 +13,14 @@ class CategorySeeder extends Seeder
      */
     public function run(): void
     {
-        $categoriesPhones = new categories();
+        $categoriesPhones = new Category();
         $categoriesPhones->name = 'Phones';
         $categoriesPhones->save();
 
-        $categoriesComputers = new categories();
+        $categoriesComputers = new Category();
         $categoriesComputers->name = 'Computers';
         $categoriesComputers->save();
+
+        Category::factory(200)->create();
     }
 }
