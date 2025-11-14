@@ -47,5 +47,30 @@ class ProductController extends Controller
 
     dd($id, $category);
 }
+
+
+    public function table(Request $request)
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'description' => 'required|string',
+            'price' => 'required|numeric',
+            'category' => 'required|exists:categories,id',
+            'brand' => 'required|exists:brands,id',
+        ]);
+
+        $product = new Product();
+        $product->name = $request->get('name');
+        $product->description = $request->get('description');
+        $product->price = $request->get('price');
+        $product->category_id = $request->get('category');
+        $product->brand_id = $request->get('brand');
+        $product->save();
+
+        return redirect()->route('products.index')->with('success', 'Product created successfully.');
+    }
+
+
+
 }
 
