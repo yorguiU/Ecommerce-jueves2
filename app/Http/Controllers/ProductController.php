@@ -25,6 +25,13 @@ class ProductController extends Controller
         echo $brand->name . '<br>';
     }
 
+    function store (Request $request){
+
+        dd($request->all());
+
+
+    }
+
     dd($id, $category);
 }
 }
