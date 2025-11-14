@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->string('url_image');
             $table->foreignId('product_id')->references('id')->on('products');
-            $table->timestamps();
         });
     }
 
